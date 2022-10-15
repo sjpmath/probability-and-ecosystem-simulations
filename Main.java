@@ -16,6 +16,7 @@ import Dist.BinomialDist;
 import Dist.GeometricDist;
 import Dist.UniformDist;
 import Dist.Utilities;
+import Branch.Branching;
 
 public class Main {
 
@@ -47,6 +48,13 @@ public class Main {
     DoubleDistributionSum u = new DoubleDistributionSum(list);
     for (int i = 0; i < 10; i++) {
       System.out.println(u.next());
+    }
+
+    Branching br = new Branching(bin);
+    for (int i = 0; i < 5; i++) {
+      br.print();
+      br.next();
+      System.out.println("---".repeat(10));
     }
 
 
