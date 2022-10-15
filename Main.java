@@ -17,6 +17,7 @@ import Dist.GeometricDist;
 import Dist.UniformDist;
 import Dist.Utilities;
 import Branch.Branching;
+import Branch.BranchingMult;
 
 public class Main {
 
@@ -56,6 +57,22 @@ public class Main {
       br.next();
       System.out.println("---".repeat(10));
     }
+
+    BernoulliDist b1 = new BernoulliDist(0.5);
+    b1.scale(2);
+    IntDistribution[][] d = new IntDistribution[2][2];
+    for (int i = 0; i < 2; i++) {
+      for (int j = 0; j < 2; j++) {
+        d[i][j] = b1;
+      }
+    }
+    BranchingMult bra = new BranchingMult(d);
+    for (int i = 0; i < 5; i++) {
+      bra.print();
+      bra.next();
+      System.out.println("---".repeat(10));
+    }
+
 
 
   }
