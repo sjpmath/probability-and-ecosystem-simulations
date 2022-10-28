@@ -16,6 +16,7 @@ import Dist.BinomialDist;
 import Dist.GeometricDist;
 import Dist.UniformDist;
 import Dist.Utilities;
+import Dist.RandomSum;
 import Branch.Branching;
 import Branch.BranchingMult;
 
@@ -72,7 +73,15 @@ public class Main {
       bra.next();
       System.out.println("---".repeat(10));
     }
-
+    RandomSum rsum = new RandomSum(new GeometricDist(0.2), new GeometricDist(0.3));
+    for (int i = 0; i < 5; i++) {
+      System.out.println(rsum.next());
+    }
+    System.out.println("---".repeat(10));
+    GeometricDist g = new GeometricDist(0.06);
+    for (int i = 0; i < 5; i++) {
+      System.out.println(g.next());
+    }
 
 
   }
