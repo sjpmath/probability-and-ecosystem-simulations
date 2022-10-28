@@ -37,7 +37,7 @@ public class Ecosystem {
     alertrad = 4;
     numTrees = 110;
     startenergy = 10;
-    numBugs = 6;
+    numBugs = 25;
     eatenergy = 7;
 
 
