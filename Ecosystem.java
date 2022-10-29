@@ -59,7 +59,7 @@ public class Ecosystem {
     List<Tree>[][] count = new List[N][N];
     for (int r = 0; r < N; r++) {
       for (int c = 0; c < N; c++) {
-        board[r][c] = rand.nextInt(15)+8;
+        board[r][c] = rand.nextInt(15)+20;
         count[r][c] = new ArrayList<>();
       }
     }
@@ -199,7 +199,8 @@ public class Ecosystem {
       for (int c = 0; c < N; c++) {
         if (forest[r][c] != null) {
           energies[r][c] = forest[r][c].energy;
-        }
+          rads[r][c] = forest[r][c].rad;
+        } else rads[r][c] = 0;
       }
     }
   }
@@ -219,6 +220,7 @@ public class Ecosystem {
   }
 
   public void printrad(){
+    System.out.println("Radii");
     for (int r = 0; r < N; r++) {
       System.out.println(Arrays.toString(rads[r]));
     }
@@ -240,6 +242,17 @@ public class Ecosystem {
     }
   }
 
+  public void resetenergy() {
+    for (int r = 0; r < N; r++) {
+      for (int c = 0; c < N; c++) {
+        if (forest[r][c]!=null) {
+          forest[r][c].energy = startenergy;
+          energies[r][c] = startenergy;
+        }
+      }
+    }
+  }
+
   public void day() {
     printrad();
     print();
@@ -254,6 +267,10 @@ public class Ecosystem {
     updateEnergyRec();
     print();
     resetrepel();
+    printrad();
+    //resetboard();
+    //resetenergy();
+    //print();
   }
 
   public void simulate() {

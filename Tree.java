@@ -9,7 +9,7 @@ public class Tree {
 
   public Tree(int N, int e) {
     Random rand = new Random();
-    rad = rand.nextInt(N/3)+1;
+    rad = rand.nextInt(10)+1;
     energy = e;
     repel = false;
   }
